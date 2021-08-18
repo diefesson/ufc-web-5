@@ -20,6 +20,7 @@ exports.findAll = async function (limit, role) {
         sql += "where lower(role) like lower(concat('%', %L, '%')) ";
         params.push(role);
     }
+    sql += "order by id "
     if (limit != null) {
         sql += "limit %L"
         params.push(limit)
